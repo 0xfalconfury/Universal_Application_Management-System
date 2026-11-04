@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduApply — Student Application Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="auth-body">
+  <div class="bg-blobs">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <nav class="top-nav">
+    <div class="brand">
+      <span class="brand-mark">EA</span>
+      <span class="brand-name">EduApply</span>
+    </div>
+    <div class="nav-links">
+      <button class="nav-btn active" data-panel="login">Sign In</button>
+      <button class="nav-btn" data-panel="register">Create Account</button>
+    </div>
+  </nav>
+
+  <main class="auth-main">
+    <!-- LOGIN -->
+    <section id="panel-login" class="auth-panel active">
+      <div class="auth-card reveal">
+        <h1 class="auth-title">Welcome <em>back</em></h1>
+        <p class="auth-sub">Sign in to manage your applications.</p>
+        <form id="login-form" class="form">
+          <div class="field">
+            <label>University ID</label>
+            <input type="text" name="university_id" placeholder="e.g. CSE-2023-014" required />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="••••••••" required />
+          </div>
+          <div class="form-msg" id="login-msg"></div>
+          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        </form>
+        <p class="auth-hint">Admin demo: <code>ADMIN-001</code> / <code>admin123</code></p>
+      </div>
+    </section>
+
+    <!-- REGISTER -->
+    <section id="panel-register" class="auth-panel">
+      <div class="auth-card wide reveal">
+        <h1 class="auth-title">Create your <em>account</em></h1>
+        <p class="auth-sub">Your account must be approved by the department head before you can sign in.</p>
+
+        <div class="role-picker">
+          <label class="role-option">
+            <input type="radio" name="reg-role" value="student" checked />
+            <span class="role-card">🎓<strong>Student</strong><small>Dept · Advisor · Batch · ID Card</small></span>
+          </label>
+          <label class="role-option">
+            <input type="radio" name="reg-role" value="teacher" />
+            <span class="role-card">🧑‍🏫<strong>Teacher / Faculty</strong><small>ID · Name · Number · Email</small></span>
+          </label>
+        </div>
+
+        <form id="register-form" class="form grid-2" enctype="multipart/form-data">
+          <div class="field">
+            <label>University ID *</label>
+            <input type="text" name="university_id" required />
+          </div>
+          <div class="field">
+            <label>Full Name *</label>
+            <input type="text" name="name" required />
+          </div>
+          <div class="field">
+            <label>Email *</label>
+            <input type="email" name="email" required />
+          </div>
+          <div class="field">
+            <label>Phone Number</label>
+            <input type="text" name="phone" />
+          </div>
+          <div class="field span-2">
+            <label>Address</label>
+            <input type="text" name="address" />
+          </div>
+
+          <!-- student-only fields -->
+          <div class="field student-only">
+            <label>Department *</label>
+            <input type="text" name="department" placeholder="e.g. Computer Science" />
+          </div>
+          <div class="field student-only">
+            <label>Advisor *</label>
+            <input type="text" name="advisor" placeholder="Advisor name" />
+          </div>
+          <div class="field student-only">
+            <label>Batch *</label>
+            <input type="text" name="batch" placeholder="e.g. 2023" />
+          </div>
+          <div class="field student-only">
+            <label>ID Card No. *</label>
+            <input type="text" name="id_card" placeholder="ID card number" />
+          </div>
+
+          <!-- NEW: mandatory ID card file -->
+          <div class="field student-only span-2">
+            <label>Upload Student ID Card * <small>(JPG / PNG / WEBP / PDF, max 5 MB)</small></label>
+            <input type="file" name="id_card_file" accept="image/*,application/pdf" />
+          </div>
+
+          <div class="field span-2">
+            <label>Password * <small>(min 6 characters)</small></label>
+            <input type="password" name="password" minlength="6" required />
+          </div>
+
+          <div class="form-msg span-2" id="register-msg"></div>
+          <button type="submit" class="btn btn-primary btn-block span-2">Submit for Approval</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">EduApply · Department of — Student Application Portal</footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Dashboard — EduApply</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="dash-nav">
+    <div class="brand"><span class="brand-mark">EA</span><span class="brand-name">EduApply</span></div>
+    <div class="nav-user">
+      <span id="user-name" class="nav-username"></span>
+      <button class="btn btn-ghost" id="logout-btn">Sign Out</button>
+    </div>
+  </nav>
+
+  <main class="dash-main">
+    <header class="dash-header reveal">
+      <h1>Faculty <em>View</em></h1>
+      <p>All student applications submitted through the portal (read-only).</p>
+    </header>
+
+    <section class="card reveal">
+      <h2 class="card-title">All Applications</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr><th>#</th><th>Student</th><th>ID</th><th>Dept</th><th>Batch</th><th>Type</th><th>Institution</th><th>Status</th><th></th></tr>
+          </thead>
+          <tbody id="apps-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="modal">
+    <div class="modal">
+      <button class="modal-close" id="modal-close">✕</button>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <div id="modal-body" class="letter-preview modal-letter"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/main.js"></script>
+  <script src="js/teacher.js"></script>
+</body>
+</html>
